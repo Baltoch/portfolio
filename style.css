@@ -18,60 +18,60 @@ menu {
         justify-content: center;
         align-items: center;
     }
-}
 
-#copyright {
-    grid-area: copyright;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: .5rem;
-}
-
-#logo {
-    grid-area: logo;
-    width: 6rem;
-    height: 6rem;
-}
-
-#github {
-    grid-area: github;
-}
-
-#linkedin {
-    grid-area: linkedin;
-}
-
-#navigation {
-    grid-area: navigation;
-}
-
-#lang {
-    grid-area: language;
-}
-
-li::marker {
-    font-size: 0;
-}
-
-li {
-    border: 1px solid black;
-}
-
-nav {
-    height: 100%;
-    width: 100%;
-    gap: 1.5rem;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-
-    a {
-        text-decoration: none;
-        text-transform: uppercase;
-        color: black;
+    #copyright {
+        grid-area: copyright;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: .5rem;
     }
 
-    a:hover {
-        text-decoration: underline;
+    #logo {
+        grid-area: logo;
+        width: 6rem;
+        height: 6rem;
+    }
+
+    #github {
+        grid-area: github;
+    }
+
+    #linkedin {
+        grid-area: linkedin;
+    }
+
+    #navigation {
+        grid-area: navigation;
+    }
+
+    #lang {
+        grid-area: language;
+    }
+
+    li::marker {
+        font-size: 0;
+    }
+
+    li {
+        border: 1px solid black;
+    }
+
+    nav {
+        height: 100%;
+        width: 100%;
+        gap: 1.5rem;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+        a {
+            text-decoration: none;
+            text-transform: uppercase;
+            color: black;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
     }
 }
 
@@ -130,4 +130,118 @@ nav {
 
 #fantasy {
     font-family: fantasy;
+}
+
+#projects {
+    --project-border-style: 2px solid black;
+
+    article {
+        background-color: beige;
+        border: 3px solid black;
+        border-radius: .1rem;
+        padding: .5rem;
+        height: 27rem;
+        width: 48rem;
+        transform: rotateZ(3deg) translateX(3rem);
+        display: grid;
+        column-gap: .5rem;
+        grid-template-columns: 3rem 1fr;
+
+    }
+
+    h2 {
+        margin: 0;
+        writing-mode: sideways-lr;
+        width: max-content;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    table {
+        height: 100%;
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+
+    tbody {
+        margin: 0;
+        padding: 0;
+        height: 27rem;
+        max-height: 27rem;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 3fr 1fr;
+    }
+
+    tr {
+        margin: 0;
+        padding: 0;
+        grid-column-end: span 2;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        min-height: 0;
+    }
+
+    td {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        padding-left: 1rem;
+        height: 100%;
+        width: 100%;
+        min-height: 0;
+        border-bottom: var(--project-border-style);
+        border-right: var(--project-border-style);
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    tr:first-child td {
+        border-top: var(--project-border-style);
+    }
+
+    td:first-child {
+        border-left: var(--project-border-style);
+    }
+
+    tr:first-child td:first-child {
+        border-top-left-radius: .12rem;
+    }
+
+    tr:first-child td:last-child {
+        border-top-right-radius: .2rem;
+    }
+
+    tr:last-child td:first-child {
+        border-bottom-left-radius: .05rem;
+    }
+
+    tr:last-child td:last-child {
+        border-bottom-right-radius: .1rem;
+    }
+
+    .date {
+        grid-column-end: span 1;
+    }
+
+    .end td {
+        border-left: none;
+    }
+
+    .description {
+        display: grid;
+        grid-template-rows: repeat(3, 1fr);
+    }
+}
+
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
