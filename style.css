@@ -2,12 +2,21 @@
     font-family: "Trebuchet MS", sans-serif;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+section {
+    min-height: 100dvh;
+}
+
 body::after {
     position: absolute;
+    height: 100%;
+    width: 100%;
     top: 0;
-    bottom: 0;
     left: 0;
-    right: 0;
     z-index: -100;
     opacity: .5;
     background-blend-mode: multiply;
@@ -147,33 +156,107 @@ menu {
     font-family: fantasy;
 }
 
+@keyframes project1 {
+    0% {
+        translate: calc(50dvh + 50%)
+    }
+
+    30% {
+        translate: calc(-50% - 3rem);
+        z-index: 2;
+    }
+
+    31% {
+        z-index: 0;
+    }
+
+    100% {
+        translate: calc(-50% - 3rem);
+        z-index: 0;
+    }
+}
+
+@keyframes project2 {
+    0% {
+        translate: calc(50dvh + 50% - 1rem);
+    }
+
+    30% {
+        translate: calc(50dvh + 50% - 1rem);
+    }
+
+    60% {
+        translate: -50% 0.8377155089896086rem;
+        rotate: z 1deg;
+    }
+
+    100% {
+        translate: -50% 0.8377155089896086rem;
+        rotate: z 1deg;
+    }
+}
+
+@keyframes project3 {
+    0% {
+        translate: calc(50dvh + 50% - 2rem);
+    }
+
+    60% {
+        translate: calc(50dvh + 50% - 2rem);
+        z-index: 0;
+    }
+
+    61% {
+        z-index: 2;
+    }
+
+    90% {
+        translate: calc(-50% + 3rem) -1.67517584172rem;
+        rotate: z -2deg;
+    }
+
+    100% {
+        z-index: 2;
+        translate: calc(-50% + 3rem) -1.67517584172rem;
+        rotate: z -2deg;
+    }
+}
+
 #projects {
     --project-border-style: 2px solid rgba(0, 0, 0, 0.70);
-
+    min-height: 300dvh;
+    view-timeline-name: --projects-timeline;
 
     article {
-        position: absolute;
+        position: fixed;
         top: 50%;
         left: 50%;
+        transform: translateY(-50%);
         background-color: rgb(204, 214, 243);
         border: 3px solid rgba(0, 0, 0, 0.75);
         border-radius: .1rem;
         padding: .5rem;
         height: 27rem;
         width: 48rem;
-        transform: rotateZ(1deg) translate(-50%, -50%) translateY(0.8377155089896086rem);
         display: grid;
         column-gap: .5rem;
         grid-template-columns: 3rem 1fr;
         box-shadow: 0px 1px 5px 0px rgb(182 182 182 / 75%);
         z-index: 1;
+        animation-name: project2;
+        animation-duration: 1ms;
+        animation-timing-function: ease-out;
+        animation-fill-mode: both;
+        animation-timeline: --projects-timeline;
 
         &:hover {
             scale: 1.03 1.03;
+            translate: -3rem;
         }
 
         &:hover~article {
-            translate: -3rem;
+            scale: 1.03 1.03;
+            translate: -3rem 0rem;
         }
 
         &::after {
@@ -193,12 +276,12 @@ menu {
     }
 
     article:first-of-type {
-        transform: translate(-50%, -50%) translateX(3rem);
         z-index: 2;
         background-color: rgb(239, 237, 217);
+        animation-name: project1;
 
         &:hover~article {
-            translate: -1.5rem;
+            translate: -3rem;
         }
 
         &::after {
@@ -207,13 +290,9 @@ menu {
     }
 
     article:last-of-type {
-        transform: rotateZ(-2deg) translate(-50%, -50%) translateX(-2rem) translateY(-1.67517584172rem);
         z-index: 0;
         background-color: rgb(237, 209, 193);
-
-        &:hover {
-            transform: rotateZ(-2deg) translate(-50%, -50%) translateX(-5rem) translateY(-1.67517584172rem) scale(1.03, 1.03);
-        }
+        animation-name: project3;
 
         &::after {
             background-image: url("/assets/Paper-Texture-8.jpg");
