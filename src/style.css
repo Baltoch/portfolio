@@ -12,7 +12,7 @@ section {
 }
 
 body::after {
-    position: absolute;
+    position: fixed;
     height: 100%;
     width: 100%;
     top: 0;
@@ -492,4 +492,11 @@ menu {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+#model {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -101;
 }

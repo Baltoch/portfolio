@@ -19,3 +19,4 @@ $ bun run dev
 ## References
 
 - [Icons Pack](https://www.streamlinehq.com/icons/flex-solid-free)
+- [Computer 3D model](https://sketchfab.com/3d-models/90s-00s-pc-451d69fabf344777a0021ea4d8b98956)
